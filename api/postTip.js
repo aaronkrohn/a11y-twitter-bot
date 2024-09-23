@@ -38,7 +38,7 @@ async function postTweet(content) {
 }
 
 // Main handler for Vercel function
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     if (req.method === 'POST') {
 
         console.log('Generating and posting accessibility tip...');
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
         //     console.log('No tip generated; skipping tweet.');
         //     return res.status(200).json({ message: 'No tip generated' });
         // }
-        
+
     } else {
         return res.status(405).json({ message: 'Method not allowed' });
     }

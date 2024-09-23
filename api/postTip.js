@@ -11,6 +11,7 @@ const twitterClient = new TwitterApi({
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_APIKEY,
+    project: process.env.OPENAI_PROJECT
 });
 
 // Function to generate an accessibility tip

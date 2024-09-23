@@ -1,0 +1,13 @@
+name: Schedule Accessibility Tips
+
+on:
+  schedule:
+    - cron: '0 9,17 * * *' # Runs at 9 AM and 5 PM UTC
+
+jobs:
+  post-tips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel Function
+        run: |
+          curl -X POST https://a11y-twitter-bot.vercel.app/api/postTip

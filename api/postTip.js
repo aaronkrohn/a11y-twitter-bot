@@ -18,22 +18,13 @@ async function generateAccessibilityTip() {
     try {
         const response = await openai.chat.completions.create({
             messages: [{ role: 'user', content: 'Provide a brief accessibility tip for mobile app developers focused on improving usability for all users, including those with disabilities. Keep it concise and actionable.' }],
-            model: 'gpt-3.5-turbo-0125',
+            model: 'gpt-3.5-turbo',
             stream: false
         });
 
         return response.choices[0].message.content.trim();
     } catch (error) {
         console.error('Error generating tip:', error);
-    }
-}
-
-async function postTweet(content) {
-    try {
-        const tweet = await twitterClient.v2.tweet(content);
-        console.log('Tweet posted:', tweet);
-    } catch (error) {
-        console.error('Error posting tweet:', error);
     }
 }
 

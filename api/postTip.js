@@ -34,6 +34,7 @@ module.exports = async function handler(req, res) {
 
     if (tip) {
         const tweetContent = `🛠️ Accessibility Tip of the Day:\n\n${tip}\n#Accessibility #A11y #InclusiveDesign`;
+        console.log(tweetContent, 'tweetContent');
         try {
             const tweet = await twitterClient.v2.tweet(tweetContent);
             console.log('Tweet posted:', tweet);

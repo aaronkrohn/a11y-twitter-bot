@@ -17,7 +17,7 @@ const openai = new OpenAI({
 async function generateAccessibilityTip() {
     try {
         const response = await openai.chat.completions.create({
-            messages: [{ role: 'user', content: 'Search: https://www.a11yproject.com. Provide one actionable concise tip for developers focused on improving usability for all users. Provide a link to read more about the tip and avoid code examples' }],
+            messages: [{ role: 'user', content: 'Search: https://www.a11yproject.com. Provide one actionable concise tip for developers focused on improving usability for all users. Provide a link to read more about the tip and avoid code examples. Keep it all in one paragraph and short enough for a tweet' }],
             model: 'gpt-3.5-turbo',
             stream: false
         });

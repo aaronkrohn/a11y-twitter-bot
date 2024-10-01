@@ -19,7 +19,7 @@ async function generateAccessibilityTip() {
         const response = await openai.chat.completions.create({
             messages: [{
                 role: 'user',
-                content: `Act as a senior accessibility expert. Provide a concise, actionable accessibility tip for developers, sourced from https://www.a11yproject.com or a similar reliable accessibility resource. Include relevant links using proper HTML <a href="URL">text</a> formatting for the references. Ensure the entire response is 280 characters or less to fit within a tweet.`
+                content: `Act as a senior accessibility expert. Provide a concise, actionable accessibility tip for developers, sourced from https://www.a11yproject.com or a similar reliable accessibility resource. Include relevant links using proper HTML <a href="URL">text</a> formatting for the references. Ensure the entire response is 210 characters or less to fit within a tweet.`
             }],
             model: 'gpt-3.5-turbo',
             stream: false
@@ -36,7 +36,7 @@ module.exports = async function handler(req, res) {
     const tip = await generateAccessibilityTip();
 
     if (tip) {
-        const tweetContent = `🛠️ Accessibility Tip of the Day:\n\n${tip}\n#Accessibility #A11y #InclusiveDesign`;
+        const tweetContent = `🛠️ Accessibility Tip of the Day:\n\n${tip}\n#Accessibility #A11y`;
         console.log(tweetContent, 'tweetContent');
         try {
             const tweet = await twitterClient.v2.tweet(tweetContent);

@@ -19,7 +19,7 @@ async function generateAccessibilityTip() {
         const response = await openai.chat.completions.create({
             messages: [{
                 role: 'user',
-                content: `Act as a senior accessibility expert. Provide a concise, actionable accessibility tip for developers, sourced from https://www.a11yproject.com or a similar reliable accessibility resource. Include relevant links using proper HTML <a href="URL">text</a> formatting for the references. Ensure the entire response is 210 characters or less to fit within a tweet.`
+                content: `Act as a senior accessibility expert. Provide a concise, actionable accessibility tip for developers, sourced from https://www.a11yproject.com or a similar reliable accessibility resource. Include relevant links for references. Ensure the entire response is 210 characters or less to fit within a tweet.`
             }],
             model: 'gpt-3.5-turbo',
             stream: false
